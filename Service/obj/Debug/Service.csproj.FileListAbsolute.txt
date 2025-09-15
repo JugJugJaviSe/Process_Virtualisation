@@ -1,0 +1,11 @@
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\bin\Debug\Service.exe.config
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\bin\Debug\Service.exe
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\bin\Debug\Service.pdb
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.csproj.AssemblyReference.cache
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.exe
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.pdb
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.exe.config
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\bin\Debug\Common.dll
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\bin\Debug\Common.pdb
+C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Service\obj\Debug\Service.csproj.Up2Date
