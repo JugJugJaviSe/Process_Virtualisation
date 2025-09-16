@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFE58BD5-906F-42BE-8F80-697D0AFD6EEB}|Client\\Client.csproj|c:\\users\\jugov\\documents\\prog\\faks\\c#\\projektifaks\\virtualisation\\officesensor\\client\\clientprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFE58BD5-906F-42BE-8F80-697D0AFD6EEB}|Client\\Client.csproj|solutionrelative:client\\clientprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE082D08-BE92-457B-A012-2E91F754C8F2}|Service\\Service.csproj|c:\\users\\jugov\\documents\\prog\\faks\\c#\\projektifaks\\virtualisation\\officesensor\\service\\services\\sensorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE082D08-BE92-457B-A012-2E91F754C8F2}|Service\\Service.csproj|solutionrelative:service\\services\\sensorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE082D08-BE92-457B-A012-2E91F754C8F2}|Service\\Service.csproj|c:\\users\\jugov\\documents\\prog\\faks\\c#\\projektifaks\\virtualisation\\officesensor\\service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{BE082D08-BE92-457B-A012-2E91F754C8F2}|Service\\Service.csproj|solutionrelative:service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{BFE58BD5-906F-42BE-8F80-697D0AFD6EEB}|Client\\Client.csproj|c:\\users\\jugov\\documents\\prog\\faks\\c#\\projektifaks\\virtualisation\\officesensor\\client\\clientprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFE58BD5-906F-42BE-8F80-697D0AFD6EEB}|Client\\Client.csproj|solutionrelative:client\\clientprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,27 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Service\\App.config",
-              "RelativeDocumentMoniker": "Service\\App.config",
-              "ToolTip": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Service\\App.config",
-              "RelativeToolTip": "Service\\App.config",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-09-15T20:24:18.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ClientProgram.cs",
               "DocumentMoniker": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Client\\ClientProgram.cs",
               "RelativeDocumentMoniker": "Client\\ClientProgram.cs",
               "ToolTip": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Client\\ClientProgram.cs",
               "RelativeToolTip": "Client\\ClientProgram.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA4wCAAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T20:19:53.769Z",
+              "WhenOpened": "2025-09-16T13:11:59.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SensorService.cs",
+              "DocumentMoniker": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Service\\Services\\SensorService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\SensorService.cs",
+              "ToolTip": "C:\\Users\\jugov\\Documents\\prog\\Faks\\C#\\ProjektiFaks\\Virtualisation\\OfficeSensor\\Service\\Services\\SensorService.cs",
+              "RelativeToolTip": "Service\\Services\\SensorService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T13:08:19.431Z",
               "EditorCaption": ""
             }
           ]

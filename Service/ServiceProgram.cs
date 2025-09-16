@@ -15,6 +15,7 @@ namespace Service
             ServiceHost serviceHost = new ServiceHost(typeof(SensorService));
             serviceHost.Open();
             Console.WriteLine("Service is active");
+            Console.WriteLine("Press any key to exit");
             Console.ReadKey();
 
             serviceHost.Close();

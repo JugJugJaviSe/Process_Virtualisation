@@ -10,6 +10,7 @@ namespace Common.Models
     [DataContract]
     public class SessionMetadata
     {
+        [DataMember]
         public List<string> ChannelNames { get; set; }
 
         public SessionMetadata(params string[] channelNames)

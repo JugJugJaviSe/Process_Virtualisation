@@ -15,8 +15,7 @@ namespace Common.Services
         OperationResult StartSession(SessionMetadata meta);
 
         [OperationContract]
-        OperationResult PushSample(SessionMetadata csvLine);
-        //OperationResult PushSample(SensorSample sample);
+        OperationResult PushSample(SensorSample sample);
 
         [OperationContract]
         OperationResult EndSession();
