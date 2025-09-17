@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using Common.Exceptions;
+using Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace Common.Services
         OperationResult StartSession(SessionMetadata meta);
 
         [OperationContract]
+        [FaultContract(typeof(DataFormatFault))]
+        [FaultContract(typeof(ValidationFault))]
         OperationResult PushSample(SensorSample sample);
 
         [OperationContract]

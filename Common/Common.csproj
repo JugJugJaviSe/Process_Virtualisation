@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\DataFormatFault.cs" />
+    <Compile Include="Exceptions\ValidationFault.cs" />
     <Compile Include="Models\OperationResult.cs" />
     <Compile Include="Models\SensorSample.cs" />
     <Compile Include="Models\SessionMetadata.cs" />
