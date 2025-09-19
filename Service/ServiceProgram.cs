@@ -1,22 +1,50 @@
-﻿using Service.Services;
+﻿using Service.Helpers;
+using Service.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Service
 {
     public class ServiceProgram
     {
         static void Main(string[] args)
         {
-            ServiceHost serviceHost = new ServiceHost(typeof(SensorService));
+            SensorService sensorService = new SensorService();
+            FileWriter _logWriter = new FileWriter(ConfigurationManager.AppSettings["logFile"],false);
+
+            sensorService.OnTransferStarted += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} ->  {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+
+            sensorService.OnSampleReceived += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} ->  {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+
+            sensorService.OnWarningRaised += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} ->  {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+
+            sensorService.OnTransferCompleted += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+
+
+            ServiceHost serviceHost = new ServiceHost(sensorService);
             serviceHost.Open();
             Console.WriteLine("Service is active");
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
+
+            // Dispose the log writer
+            _logWriter.Dispose();
 
             serviceHost.Close();
             Console.WriteLine("Service is closed");

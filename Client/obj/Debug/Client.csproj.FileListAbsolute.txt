@@ -9,3 +9,13 @@ C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\C
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Client\obj\Debug\Client.exe
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Client\obj\Debug\Client.pdb
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Client\obj\Debug\Client.exe.config
+C:\Users\User\Desktop\VP\Kancelarija\Client\bin\Debug\Client.exe.config
+C:\Users\User\Desktop\VP\Kancelarija\Client\bin\Debug\Client.exe
+C:\Users\User\Desktop\VP\Kancelarija\Client\bin\Debug\Client.pdb
+C:\Users\User\Desktop\VP\Kancelarija\Client\bin\Debug\Common.dll
+C:\Users\User\Desktop\VP\Kancelarija\Client\bin\Debug\Common.pdb
+C:\Users\User\Desktop\VP\Kancelarija\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\VP\Kancelarija\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\VP\Kancelarija\Client\obj\Debug\Client.csproj.Up2Date
+C:\Users\User\Desktop\VP\Kancelarija\Client\obj\Debug\Client.exe
+C:\Users\User\Desktop\VP\Kancelarija\Client\obj\Debug\Client.pdb

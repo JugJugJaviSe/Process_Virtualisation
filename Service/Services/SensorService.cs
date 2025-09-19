@@ -1,6 +1,7 @@
 ﻿using Common.Exceptions;
 using Common.Models;
 using Common.Services;
+using Service.EventArguments;
 using Service.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,32 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class SensorService : ISensorService
     {
         private List<string> _currentSessionChannels = new List<string>();
         private FileWriter _sensorSampleWriter;
         private FileWriter _logWriter;
 
+        public delegate void MyEventHandler(object sender, CustomEventArgs e);
+
+        public event MyEventHandler OnTransferStarted;
+        public event MyEventHandler OnSampleReceived;
+        public event MyEventHandler OnTransferCompleted;
+        public event MyEventHandler OnWarningRaised;
+
+        
+        private double _pressureThreshold = double.Parse(ConfigurationManager.AppSettings["P_threshold"]);
+        private double _no2Threshold = double.Parse(ConfigurationManager.AppSettings["N02_threshold"]);
+        private double _coThreshold = double.Parse(ConfigurationManager.AppSettings["C0_threshold"]);
+        // Allowed deviation from session mean (±%)
+        private double _deviationThreshold = double.Parse(ConfigurationManager.AppSettings["DeviationThreshold"]);
+
         public OperationResult StartSession(SessionMetadata meta)
         {
+            if (OnTransferStarted != null)
+                OnTransferStarted(this, new CustomEventArgs("Session started."));
+
             _currentSessionChannels = meta.ChannelNames;
             _sensorSampleWriter = new FileWriter(ConfigurationManager.AppSettings["measurementsSessionCsv"], false);
             _logWriter = new FileWriter(ConfigurationManager.AppSettings["rejectsCsv"], false);
@@ -32,6 +51,8 @@ namespace Service.Services
 
         public OperationResult PushSample(SensorSample sample)
         {
+            if (OnSampleReceived != null)
+                OnSampleReceived(this, new CustomEventArgs($"Sample received.({sample})"));
             try
             {
                 ValidateSample(sample);
@@ -40,6 +61,11 @@ namespace Service.Services
             catch (Exception ex)
             {
                 _logWriter.WriteSensorSample(sample);
+
+                if (OnWarningRaised != null)
+                {
+                    OnWarningRaised(this, new CustomEventArgs($"Warning raised.({ex})"));
+                }
                 throw ex;   //throwing so client can print it
             }
             return new OperationResult(ResponseCode.ACK, SessionStatus.IN_PROGRESS);
@@ -47,6 +73,8 @@ namespace Service.Services
 
         public OperationResult EndSession()
         {
+            if (OnTransferCompleted != null)
+                OnTransferCompleted(this, new CustomEventArgs("Session ended."));
             //Dispose pattern test
             /*try
             {

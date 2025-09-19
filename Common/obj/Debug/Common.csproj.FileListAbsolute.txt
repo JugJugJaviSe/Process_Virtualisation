@@ -4,3 +4,9 @@ C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\C
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Common\obj\Debug\Common.dll
 C:\Users\jugov\Documents\prog\Faks\C#\ProjektiFaks\Virtualisation\OfficeSensor\Common\obj\Debug\Common.pdb
+C:\Users\User\Desktop\VP\Kancelarija\Common\bin\Debug\Common.dll
+C:\Users\User\Desktop\VP\Kancelarija\Common\bin\Debug\Common.pdb
+C:\Users\User\Desktop\VP\Kancelarija\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\VP\Kancelarija\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\VP\Kancelarija\Common\obj\Debug\Common.dll
+C:\Users\User\Desktop\VP\Kancelarija\Common\obj\Debug\Common.pdb
