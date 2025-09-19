@@ -27,12 +27,19 @@ namespace Service.Services
         public event MyEventHandler OnTransferCompleted;
         public event MyEventHandler OnWarningRaised;
 
-        
+        public event MyEventHandler PressureSpike;
+        public event MyEventHandler OutOfBandWarning;
+
+
+
         private double _pressureThreshold = double.Parse(ConfigurationManager.AppSettings["P_threshold"]);
         private double _no2Threshold = double.Parse(ConfigurationManager.AppSettings["N02_threshold"]);
         private double _coThreshold = double.Parse(ConfigurationManager.AppSettings["C0_threshold"]);
-        // Allowed deviation from session mean (±%)
         private double _deviationThreshold = double.Parse(ConfigurationManager.AppSettings["DeviationThreshold"]);
+
+        private SensorSample _previousSample;
+        private int _numOfSamples;
+        private double Pmean;
 
         public OperationResult StartSession(SessionMetadata meta)
         {
@@ -42,6 +49,10 @@ namespace Service.Services
             _currentSessionChannels = meta.ChannelNames;
             _sensorSampleWriter = new FileWriter(ConfigurationManager.AppSettings["measurementsSessionCsv"], false);
             _logWriter = new FileWriter(ConfigurationManager.AppSettings["rejectsCsv"], false);
+
+            _previousSample = null;
+            _numOfSamples = 0;
+            Pmean = 0;
 
             _sensorSampleWriter.WriteLog(string.Join(",", _currentSessionChannels));
             _logWriter.WriteLog(string.Join(",", _currentSessionChannels));
@@ -57,6 +68,10 @@ namespace Service.Services
             {
                 ValidateSample(sample);
                 _sensorSampleWriter.WriteSensorSample(sample);
+
+                pressureCalculations(sample);
+                _previousSample = sample;
+
             }
             catch (Exception ex)
             {
@@ -128,6 +143,44 @@ namespace Service.Services
                 throw new FaultException<ValidationFault>(
                     new ValidationFault($"Volume must be greater than 0. Received: {sample.Volume}"),
                     "Validation error");
+        }
+
+        private void pressureCalculations(SensorSample sample)
+        {
+            if(_previousSample == null) // first sample
+            {
+                _numOfSamples = 1;
+                Pmean = sample.Pressure;
+                return;
+            }
+            double deltaP = sample.Pressure - _previousSample.Pressure;
+
+            // Check for pressure spike
+            if (Math.Abs(deltaP) > _pressureThreshold)
+            {
+                string direction = deltaP > 0 ? "above expected" : "below expected";
+                if (PressureSpike != null)
+                    PressureSpike(this, new CustomEventArgs($"Pressure spike detected: {Math.Abs(deltaP):F3} ({direction})"));
+            }
+
+            // Update running mean (Pmean)
+            Pmean = ((Pmean * _numOfSamples) + sample.Pressure) / (_numOfSamples + 1);
+            _numOfSamples++;
+
+            // Check for out-of-band warning
+            double lowerBound = (1 - _deviationThreshold/100) * Pmean;
+            double upperBound = (1 + _deviationThreshold/100) * Pmean;
+
+            if (sample.Pressure < lowerBound)
+            {
+                if (OutOfBandWarning != null)
+                    OutOfBandWarning(this, new CustomEventArgs($"Pressure below expected range: {sample.Pressure:F2} < {lowerBound:F2} (mean: {Pmean:F2})"));
+            }
+            else if (sample.Pressure > upperBound)
+            {
+                if (OutOfBandWarning != null)
+                    OutOfBandWarning(this, new CustomEventArgs($"Pressure above expected range: {sample.Pressure:F2} > {upperBound:F2} (mean: {Pmean:F2})"));
+            }
         }
     }
 }

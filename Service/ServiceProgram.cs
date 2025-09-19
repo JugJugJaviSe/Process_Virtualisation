@@ -36,6 +36,16 @@ namespace Service
                 Console.WriteLine($"{DateTime.Now} -> {e.Message}");
             };
 
+            sensorService.PressureSpike += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+            sensorService.OutOfBandWarning += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
 
             ServiceHost serviceHost = new ServiceHost(sensorService);
             serviceHost.Open();
