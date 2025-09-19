@@ -46,6 +46,16 @@ namespace Service
                 _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
                 Console.WriteLine($"{DateTime.Now} -> {e.Message}");
             };
+            sensorService.COSpike += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
+            sensorService.NO2Spike += (s, e) =>
+            {
+                _logWriter.WriteLog($"{DateTime.Now} -> {e.Message}");
+                Console.WriteLine($"{DateTime.Now} -> {e.Message}");
+            };
 
             ServiceHost serviceHost = new ServiceHost(sensorService);
             serviceHost.Open();

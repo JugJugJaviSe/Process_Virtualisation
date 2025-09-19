@@ -29,6 +29,8 @@ namespace Service.Services
 
         public event MyEventHandler PressureSpike;
         public event MyEventHandler OutOfBandWarning;
+        public event MyEventHandler COSpike;
+        public event MyEventHandler NO2Spike;
 
 
 
@@ -70,6 +72,8 @@ namespace Service.Services
                 _sensorSampleWriter.WriteSensorSample(sample);
 
                 pressureCalculations(sample);
+                GasChangesCalculations(sample);
+
                 _previousSample = sample;
 
             }
@@ -180,6 +184,30 @@ namespace Service.Services
             {
                 if (OutOfBandWarning != null)
                     OutOfBandWarning(this, new CustomEventArgs($"Pressure above expected range: {sample.Pressure:F2} > {upperBound:F2} (mean: {Pmean:F2})"));
+            }
+        }
+
+        private void GasChangesCalculations(SensorSample sample)
+        {
+            if (_previousSample == null)
+                return;
+
+            // CO Spike Detection
+            double deltaCO = sample.CO - _previousSample.CO;
+            if (Math.Abs(deltaCO) > _coThreshold)
+            {
+                string direction = deltaCO > 0 ? "above expected" : "below expected";
+                if (COSpike != null)
+                    COSpike(this, new CustomEventArgs($"CO spike detected: {Math.Abs(deltaCO):F2} ({direction})"));
+            }
+
+            // NO2 Spike Detection
+            double deltaNO2 = sample.NO2 - _previousSample.NO2;
+            if (Math.Abs(deltaNO2) > _no2Threshold)
+            {
+                string direction = deltaNO2 > 0 ? "above expected" : "below expected";
+                if (NO2Spike != null)
+                    NO2Spike(this, new CustomEventArgs($"NO2 spike detected: {Math.Abs(deltaNO2):F2} ({direction})"));
             }
         }
     }
