@@ -6,6 +6,7 @@ using Service.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -26,7 +27,7 @@ namespace Service.Services
         public event MyEventHandler OnSampleReceived;
         public event MyEventHandler OnTransferCompleted;
         public event MyEventHandler OnWarningRaised;
-
+        
         public event MyEventHandler PressureSpike;
         public event MyEventHandler OutOfBandWarning;
         public event MyEventHandler COSpike;
@@ -104,7 +105,7 @@ namespace Service.Services
             }
             catch (IOException ex)
             {
-                Console.WriteLine("File is locked because FileWriter still has it open.\n" + ex);
+                Console.WriteLine("\nFile is locked because FileWriter still has it open.\n\n" + ex);
             }*/
 
             _sensorSampleWriter.Dispose();
@@ -113,7 +114,7 @@ namespace Service.Services
             //Dispose pattern test
             /*using (var fs = new FileStream(ConfigurationManager.AppSettings["measurementsSessionCsv"], FileMode.Open, FileAccess.Write, FileShare.None))
             {
-                Console.WriteLine("Success: after Dispose(), the file can be opened again.");
+                Console.WriteLine("\nSuccess: after Dispose(), the file can be opened again.");
             }*/
 
             return new OperationResult(ResponseCode.ACK, SessionStatus.COMPLETED);
